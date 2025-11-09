@@ -16,7 +16,7 @@
             <h1>🥐🍞🥖</h1>
             <h3>Welcome to the Order Management System (OMS)!</h3>
             <p>Please select your login type to continue:</p>
-            <a href="./Clinet/RegistrationPage/Login.php">
+            <a href="./Client/RegistrationPage/Login.php">
                 <button>Client Login</button>
             </a>
             <a href="./Admin/RegistrationPage/Login.php">

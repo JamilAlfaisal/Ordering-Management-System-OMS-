@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Redirect user to the main ordering page
         // You may need to adjust this path if your index.php is elsewhere
-        header("location: ../../Frontend/Client/BakeriesPage/BakeriesPage.php"); 
+        header("location: ../../Backend/ClientBackend/BakeryLogic.php"); 
         
     } else {
         // Fall-through error

@@ -9,7 +9,7 @@
     <body>
         <section class="appbar">
             <h2>Available Backeries</h2>
-            <a href="/OMS/frontEnd/Client/RegistrationPage/Login.php">← Back</a>
+            <a href="/OMS/frontEnd/Client/Logout.php">🚪 Logout</a>
         </section>
         <table border="1">
             <tr>
@@ -19,9 +19,9 @@
             <tr>
             <?php foreach ($bakeries as $bakery): ?>
                 <tr>
-                    <td><a href="ProductsPage.php?bakery_id=<?php echo htmlspecialchars($bakery['Id']); ?>" target="_blank">SELECT</a></td>
+                    <td><a href="/OMS/BackEnd/ClientBackend/OrderPageLogic.php?bakery_id=<?php echo htmlspecialchars($bakery['Id']); ?>" target="_blank">SELECT</a></td>
                     <td><?php echo htmlspecialchars($bakery['name']); ?></td>
-                    <td><?php echo htmlspecialchars($bakery['Id']); ?></td>
+                    <td>#<?php echo htmlspecialchars($bakery['Id']); ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>

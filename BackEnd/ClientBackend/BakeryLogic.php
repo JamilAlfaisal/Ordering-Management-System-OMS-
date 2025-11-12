@@ -1,9 +1,15 @@
 <?php 
+    session_start();
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
+    
 
     require_once __DIR__ . '/../config.php';
 
+    if (!isset($_SESSION['user_id'])) {
+        header("location: ../../frontend/index.php?error=notloggedin");
+        exit;
+    }
 
     $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 

@@ -62,7 +62,7 @@
             $stmt_item->execute();
         }
         $stmt_item->close();
-        die("Order Submitted Successfully!");
+        header("Location: /OMS/BackEnd/ClientBackend/OrderStatusLogic.php?bakery_id=" . urlencode($bakeryId));
     }
 
     $conn->close();

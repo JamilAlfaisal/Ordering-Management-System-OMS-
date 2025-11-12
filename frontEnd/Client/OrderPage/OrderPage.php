@@ -30,6 +30,13 @@
                     </div>
                 </div>
                 <button type="button" id="addButton" class="AddAnotherButton margineleft">Add Another Item</button>
+                <button 
+                    type="button" 
+                    id="addButton" 
+                    class="AddAnotherButton margineleft"
+                    onClick="window.location.href='/OMS/BackEnd/ClientBackend/OrderStatusLogic.php?bakery_id=<?php echo urlencode($bakeryId); ?>';"
+                    
+                    >Open Orders Page</button>
                 <button class="SubmitOrderButton margineleft">Submit Order</button>
             </form>
         </div>

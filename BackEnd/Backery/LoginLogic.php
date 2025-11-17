@@ -34,9 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // If passwords are NOT hashed – just compare directly:
         if ($row['password'] == $password) {
-
+            // Set session variables
+            $_SESSION['bakery_id'] = $row['Id'];
             // Successful login
-            header("location: ../../frontEnd/Backery/OrderDashboard/OrderDashPage.php?Id=" . urlencode($row['Id']));
+            header("location: ../../BackEnd/Backery/DashBoardLogic.php");
             exit;
 
         } else {

@@ -81,7 +81,7 @@
 <body>
     <div class="appbar">
         <h2>Available Backeries</h2>
-        <a href="">Register</a>
+        <a href="/OMS/frontEnd/Backery/Registration/SingUp.php">Register</a>
     </div>
     <section from="form">
         <form action="/OMS/BackEnd/Backery/LoginLogic.php" method="post">

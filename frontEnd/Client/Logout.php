@@ -6,6 +6,6 @@
     session_destroy();  // Destroy the session itself
 
     // 2. Redirect the user to the login page after logging out
-    header("Location: /OMS/frontEnd/Client/RegistrationPage/Login.php");
+    header("Location: /OMS/frontEnd/index.php");
     exit;
 ?>

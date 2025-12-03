@@ -20,7 +20,7 @@
                 <button>Client Login</button>
             </a>
             <a href="./Backery/Registration/Login.php">
-                <button>Admin Login</button>
+                <button>Bakery Login</button>
             </a>
         </div>
     </section>

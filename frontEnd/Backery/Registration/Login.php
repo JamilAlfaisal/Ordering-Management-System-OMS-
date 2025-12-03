@@ -95,6 +95,15 @@
                 <input type="password" id="password" name="password" required placeholder="Enter your Password">
             </div>
             <button type="submit">Login</button>
+            <p><?php
+                if (isset($_GET['error'])) {
+                    if ($_GET['error'] == 'wrongpassword') {
+                        echo "<span style='color:red;'>Incorrect email or password.</span>";
+                    } else if($_GET['error'] == 'inactiveaccount'){
+                        echo "<span style='color:red;'>Your account is deactivated. Please contact admin.</span>";
+                    }
+                }
+            ?></p>
         </form>
     </section>
 </body>

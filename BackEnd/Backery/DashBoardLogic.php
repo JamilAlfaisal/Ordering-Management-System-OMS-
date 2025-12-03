@@ -13,17 +13,11 @@ if (!isset($_SESSION['bakery_id'])) {
 
 $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-// Check connection
 if ($conn->connect_error) {
     die("Database connection failed: " . $conn->connect_error);
 }
 
-// ==========================
-// 2. FETCH ORDERS AND CUSTOMER NAME (SECURELY)
-// ==========================
 
-// This query correctly fetches the order details and the customer's name (aliased as UserId).
-// (ORDER joins USER using UserId)
 $sql_orders = "
     SELECT 
         o.order_date, 
@@ -41,7 +35,6 @@ $sql_orders = "
 ";
 
 $stmt_orders = $conn->prepare($sql_orders);
-// 'i' means the parameter is an integer (for bakery_id)
 $stmt_orders->bind_param("i", $_SESSION['bakery_id']);
 $stmt_orders->execute();
 $result_orders = $stmt_orders->get_result();
@@ -55,13 +48,6 @@ if ($result_orders->num_rows > 0) {
     }
 }
 
-
-// ==========================
-// 3. FETCH PASTRIES (ITEMS) FOR EACH ORDER
-// ==========================
-
-// This query is correctly simplified to only query the 'pastries' table
-// based on OrderId, as confirmed by your ER diagram (PASTRIES table lacks UserId).
 $sql_pastries = "
 SELECT
     Item, 
@@ -77,14 +63,11 @@ $stmt_pastries = $conn->prepare($sql_pastries);
 
 $pastries = [];
 
-// Loop through the fetched orders to get the items for each order
 for ($i = 0; $i < count($orders); $i++) {
-    // Reusing the prepared statement is efficient
     $stmt_pastries->bind_param("i", $orders[$i]['Id']);
     $stmt_pastries->execute();
     $result_pastries = $stmt_pastries->get_result();
     
-    // Store pastries data keyed by the Order ID
     $pastries[$orders[$i]['Id']] = [];
     
     if ($result_pastries->num_rows > 0) {
@@ -96,7 +79,6 @@ for ($i = 0; $i < count($orders); $i++) {
 
 $stmt_pastries->close();
 
-// Close connection
 require_once "../../frontEnd/Backery/OrderDashboard/OrderDashPage.php";
 $conn->close();
 ?>

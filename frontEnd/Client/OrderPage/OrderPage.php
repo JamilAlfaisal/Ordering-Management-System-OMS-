@@ -62,17 +62,12 @@
                     alert("You must order at least one item.");
                 }
             }
-
-            // --- 2. Attach click listener to the container (Event Delegation) ---
-            // This listens for clicks on the 'itemContainer' but only runs the function
-            // if the click originated on an element with the class 'remove-button'.
             itemContainer.addEventListener('click', function(event) {
                 if (event.target.classList.contains('remove-button')) {
                     removeItemRow(event);
                 }
             });
 
-            // --- 3. Add Another Item Button Logic ---
             addButton.addEventListener('click', function() {
                 
                 const templateRow = itemContainer.querySelector('.item-row');
@@ -80,7 +75,6 @@
 
                 const newItemRow = templateRow.cloneNode(true); 
 
-                // Clear values and update attributes in the new row
                 const inputs = newItemRow.querySelectorAll('input');
 
                 inputs.forEach(input => {
@@ -97,10 +91,7 @@
                     }
                 });
 
-                // 4. Append the new row to the container
                 itemContainer.appendChild(newItemRow);
-
-                // 5. Increment counter
                 itemCount++;
             });
         });

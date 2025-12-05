@@ -21,7 +21,7 @@
         $error_message = "Could not connect to the database at this time.";
     }
 
-    $sql = "SELECT Id, name FROM BAKERY ORDER BY name ASC";
+    $sql = "SELECT Id, name FROM BAKERY where role = 'bakery' ORDER BY name ASC";
     // is 2D array of available bakeries 
     $result = $conn->query($sql);
 
